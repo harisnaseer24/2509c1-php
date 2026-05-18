@@ -4,7 +4,6 @@ $username ="root";
 $password="";
 $dbname="2509c1-php";
 
-
 $conn = mysqli_connect($server,$username,$password,$dbname);
 
 
