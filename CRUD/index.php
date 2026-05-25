@@ -16,10 +16,10 @@
       <th scope="col">Price</th>
       <th scope="col">Stock</th>
       <th scope="col">Pta Status</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
-
 
   <?php 
   $getAllMobiles= "SELECT * FROM `mobiles` WHERE 1";
@@ -36,7 +36,12 @@ echo "<tr>
       <td> Rs. {$row["price"]}</td>
       <td>{$row["stock"]} Units</td>
       <td>{$row["ptaStatus"]}</td>
-       </tr>
+      <td>
+<a href='./delete.php?id={$row["id"]}' class='btn btn-danger btn-sm'>Delete</a>
+<a href='./edit.php?id={$row["id"]}' class='btn btn-primary btn-sm'>Edit</a>
+</td>
+      
+      </tr>
       ";
   }
    
