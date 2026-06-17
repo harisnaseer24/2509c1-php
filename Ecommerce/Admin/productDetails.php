@@ -35,10 +35,12 @@ $row= mysqli_fetch_assoc($result_products);
              
               <div class="row">
                 <div class="col-6">
-                    ><img src="./uploads/<?= $row['image'] ?>" alt="" style="height: 60px; width:60px">
+                    <img src="./uploads/<?= $row['image'] ?>" alt="" style="width:90%">
                 </div>
                 <div class="col-6">
                     <h1><?= $row['title'] ?></h1>
+                    <p><?= $row['description'] ?></p>
+                    <p>Rs. <?= $row['price'] ?></p>
                 </div>
                 
               </div>
