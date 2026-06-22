@@ -60,8 +60,8 @@ $result_products = mysqli_query($conn,$get_products);
                           
                             <td>
                               <a href="./productDetails.php?id=<?= $row['product_id'] ?>" class="btn btn-outline-primary">View</a >
-                              <a href="./productDetails.php?id=<?= $row['product_id'] ?>" class="btn btn-outline-primary">Edit</a >
-                              <a href="./productDetails.php?id=<?= $row['product_id'] ?>" class="btn btn-outline-primary">Delete</a >
+                              <a href="./editproduct.php?id=<?= $row['product_id'] ?>" class="btn btn-outline-primary">Edit</a >
+                              <a href="./deleteproduct.php?id=<?= $row['product_id'] ?>" class="btn btn-outline-primary">Delete</a >
                             </td>
                         </tr>
 
