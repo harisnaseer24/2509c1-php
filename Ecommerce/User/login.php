@@ -1,3 +1,9 @@
+<?php 
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -101,14 +107,10 @@
 
 <!-- Mirrored from www.urbanui.com/melody/template/pages/samples/register-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:08:54 GMT -->
 </html>
-
-
 <?php 
 
 if(isset($_POST['signin'])){
 @require_once ("../Config/connection.php");
-
-
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -116,42 +118,49 @@ $password = $_POST['password'];
 // //Checking user is registered or not
 $checkUser="SELECT * from USERS WHERE email = '$email'";
 $checkUserResult=mysqli_query($conn, $checkUser);
-
+$userDetails= mysqli_fetch_assoc($checkUserResult);
 
 if( mysqli_num_rows($checkUserResult)  == 0){
     
-
 echo "no user";
 echo "<script> alert('User not Registered. 
 Please Signup first..')
 window.location.href='./signup.php'
 </script>";
 
-
 }else{
-  echo "user found";
+// db -- > hash -> hdfshf8432364y82648723ywegdwjhegrdjwegrjewgr --> 123
+// form --> 123 -> verify(123, hash) - > true / false
+$verifyPassword= password_verify($password,$userDetails['password']);
 
-echo "<script>alert('hi')
-   
+if($verifyPassword ==true){
+
+$_SESSION["username"]=$userDetails["username"];
+$_SESSION["email"]=$userDetails["email"];
+$_SESSION["role"]=$userDetails["role"];
+
+
+
+
+echo "<script>alert('Login Success')
 </script>";
-// $addUser= "INSERT INTO `users`( `username`, `email`, `password`) VALUES ('$username','$email','$hashpassword')";
-// $addUserResult=mysqli_query($conn, $addUser);
 
-// if ($addUserResult) {
-   
-// echo "<script>alert('User Registered Successfully...')
-
-//     window.location.href='./login.php'
-// </script>";
-
-// } else {
-//    echo "<script>alert('Failed to register the user right now...')
-// </script>";
-// }
-
-
+if ($userDetails['role'] == "admin") {
+echo "<script> 
+window.location.href='../Admin/index.php'
+</script>";
+} else {
+echo "<script> 
+window.location.href='./index.php'
+</script>";
 }
 
+
+}else{
+
+echo "<script>alert('Invalid Credentials')</script>";
+}
+}
 }
 
 

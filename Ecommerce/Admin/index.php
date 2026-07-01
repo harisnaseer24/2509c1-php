@@ -8,7 +8,7 @@
         <div class="content-wrapper">
           <div class="page-header">
             <h3 class="page-title">
-              Dashboard
+              Dashboard  <?= $_SESSION["username"] ?>
             </h3>
           </div>
           <div class="row grid-margin">
