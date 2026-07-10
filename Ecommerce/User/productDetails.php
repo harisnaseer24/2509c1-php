@@ -39,8 +39,21 @@ $row= mysqli_fetch_assoc($result_products);
                 </div>
                 <div class="col-lg-6">
                     <h1><?= $row['title'] ?></h1>
+                        <h2>Rs. <?= $row['price'] ?></h2>
                     <p><?= $row['description'] ?></p>
-                    <p>Rs. <?= $row['price'] ?></p>
+                 
+                <form action="./addtocart.php" method="post">
+      <input type="hidden" name="product_id" value="<?= $row['product_id'] ?>">
+      <input type="hidden" name="price" value="<?= $row['price'] ?>">
+      <input type="number" name="qty" value="1" min="1" max="<?= $row['stock'] ?>">
+      <input type="submit" name="addtocart" value="Add to cart" class="btn btn-primary">
+
+                </form>
+
+
+
+
+
                 </div>
                 
               </div>

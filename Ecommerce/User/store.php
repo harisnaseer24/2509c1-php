@@ -115,7 +115,17 @@ $getProductsResult = mysqli_query($conn, $getProducts);
 								</div>
 							</div>
 							<div class="add-to-cart">
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+
+								 <form action="./addtocart.php" method="post">
+      <input type="hidden" name="product_id" value="<?= $row1['product_id'] ?>">
+      <input type="hidden" name="price" value="<?= $row1['price'] ?>">
+      <input type="hidden" name="qty" value="1"  >
+	  <button type="submit" name="addtocart" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+    
+
+                </form>
+
+								
 							</div>
 						</div>
 					</div>
