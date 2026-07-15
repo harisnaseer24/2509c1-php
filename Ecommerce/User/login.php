@@ -138,6 +138,7 @@ if($verifyPassword ==true){
 $_SESSION["username"]=$userDetails["username"];
 $_SESSION["email"]=$userDetails["email"];
 $_SESSION["role"]=$userDetails["role"];
+$_SESSION["user_id"]=$userDetails["user_id"];
 
 
 
