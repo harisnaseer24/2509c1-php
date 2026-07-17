@@ -36,7 +36,7 @@ if($result){
      echo "<script>alert('Failed to add product in cart right now..!')</script>";
 }
 }
-} else {
+ else {
    
 $addToCartQuery ="INSERT INTO `cart`( `product_id`, `user_id`, `qty`, `price`, `total`) VALUES ($product_id,$user_id,$qty,$price,$total)";
 $result = mysqli_query($conn,$addToCartQuery);
@@ -55,7 +55,7 @@ if($result){
 
 
 
-
+}
 
 
 
